@@ -1,0 +1,126 @@
+@import 'tailwindcss';
+
+/* Colour tokens. Dark is the original "bitumen" look; light is used when the
+   system is in light mode. All text pairs meet WCAG AA. */
+:root {
+  color-scheme: light dark;
+  --bg: #f6f4ef;
+  --panel: #ffffff;
+  --panel-2: #efece4;
+  --ink: #1f2328;
+  --muted: #535c66;
+  --edge: #cfc9bc;
+  --track: #e6e2d8;
+  --accent: #f5c518;
+  --accent-hover: #ffd530;
+  --accent-text: #745700;
+  --on-accent: #141414;
+  --on-accent-muted: #4a3d00;
+  --good: #4ecb94;
+  --good-ink: #0e3a28;
+  --good-text: #17714a;
+  --bad: #ff7a7a;
+  --bad-ink: #4a0f14;
+  --plate: #f1eee7;
+  --focus: #1f2328;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1f2328;
+    --panel: #2a3037;
+    --panel-2: #333a42;
+    --ink: #f1eee7;
+    --muted: #a3adb7;
+    --edge: #3e464f;
+    --track: #171a1e;
+    --accent-text: #f5c518;
+    --good-text: #4ecb94;
+    --focus: #f5c518;
+  }
+}
+
+@theme {
+  --color-bg: var(--bg);
+  --color-panel: var(--panel);
+  --color-panel-2: var(--panel-2);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-edge: var(--edge);
+  --color-track: var(--track);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-text: var(--accent-text);
+  --color-on-accent: var(--on-accent);
+  --color-on-accent-muted: var(--on-accent-muted);
+  --color-good: var(--good);
+  --color-good-ink: var(--good-ink);
+  --color-good-text: var(--good-text);
+  --color-bad: var(--bad);
+  --color-bad-ink: var(--bad-ink);
+  --color-plate: var(--plate);
+  --font-display: 'Barlow Condensed', 'Arial Narrow', system-ui, sans-serif;
+  --font-body: 'Barlow', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --radius-card: 14px;
+}
+
+/* Base size 17px like the original; the A+ toggle scales everything by 1.18. */
+html {
+  font-size: 106.25%;
+  -webkit-text-size-adjust: 100%;
+}
+html[data-big='1'] {
+  font-size: 125.375%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+a {
+  color: var(--accent-text);
+}
+
+/* Lane-line progress bar (the original's signature look). */
+.lane-fill {
+  height: 100%;
+  background-color: #3a3327;
+  background-image: repeating-linear-gradient(90deg, var(--accent) 0 16px, transparent 16px 30px);
+  transition: width 0.35s ease;
+}
+.lane-plain .lane-fill {
+  background-color: var(--muted);
+  background-image: repeating-linear-gradient(90deg, var(--ink) 0 18px, transparent 18px 34px);
+  opacity: 0.85;
+}
+@media (prefers-color-scheme: light) {
+  .lane-fill {
+    background-color: #d9cfa8;
+  }
+  .lane-plain .lane-fill {
+    background-color: var(--track);
+  }
+}
+
+.num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--accent-text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
