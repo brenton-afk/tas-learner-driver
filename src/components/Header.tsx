@@ -19,10 +19,10 @@ export function Header({ big, onToggleBig }: { big: boolean; onToggleBig: () => 
         type="button"
         onClick={onToggleBig}
         aria-pressed={big}
-        aria-label="Larger text"
         className="ml-auto min-h-11 min-w-11 flex-none cursor-pointer rounded-full border border-edge bg-transparent px-3 py-2 text-sm text-muted hover:border-muted hover:text-ink aria-pressed:border-accent aria-pressed:text-ink"
       >
         A<sup>+</sup>
+        <span className="sr-only"> Larger text</span>
       </button>
     </header>
   );

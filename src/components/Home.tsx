@@ -127,7 +127,6 @@ export function Home({ progress, onAction, onTopic, onReset }: HomeProps) {
               <button
                 type="button"
                 onClick={() => onTopic(t.id)}
-                aria-label={`${t.name}, ${ok} of ${qs.length} correct`}
                 className="group block min-h-14 w-full cursor-pointer border-0 border-b border-edge bg-transparent px-0.5 py-3.5 text-left text-ink"
               >
                 <span className="mb-2 flex items-baseline gap-2.5">
@@ -136,6 +135,7 @@ export function Home({ progress, onAction, onTopic, onReset }: HomeProps) {
                   </span>
                   <span className="ml-auto text-[0.765rem] text-muted tabular-nums">
                     {ok}/{qs.length}
+                    <span className="sr-only"> correct</span>
                   </span>
                 </span>
                 <span aria-hidden="true" className="block">
