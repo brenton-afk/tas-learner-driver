@@ -1,7 +1,8 @@
+import type { JSX } from 'react';
 import * as S from './svgs';
 
 interface SignDef {
-  Component: (props: { label: string; className?: string }) => React.JSX.Element;
+  Component: (props: { label: string; className?: string }) => JSX.Element;
   /** What a sighted person sees, without naming the sign's meaning. */
   description: string;
 }
@@ -50,9 +51,4 @@ export type SignId = keyof typeof SIGNS;
 
 export function isSignId(id: string): id is SignId {
   return Object.prototype.hasOwnProperty.call(SIGNS, id);
-}
-
-export function RoadSign({ id, className }: { id: SignId; className?: string }) {
-  const { Component, description } = SIGNS[id];
-  return <Component label={`Road sign: ${description}`} className={className} />;
 }
