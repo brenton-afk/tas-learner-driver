@@ -14,6 +14,9 @@ interface HomeProps {
   onReset: () => void;
 }
 
+/** Inline links padded to a 44px tap target without changing the sentence. */
+const footLink = 'inline-flex min-h-11 items-center align-middle';
+
 const modeBase =
   'flex w-full min-h-[60px] cursor-pointer items-center gap-3.5 rounded-card border px-4 py-[15px] text-left';
 const modeNormal = `${modeBase} border-edge bg-panel text-ink hover:border-muted hover:bg-panel-2`;
@@ -167,11 +170,21 @@ export function Home({ progress, onAction, onTopic, onReset }: HomeProps) {
 
       <p className="mt-9 border-t border-edge pt-4 text-[0.765rem] text-muted">
         Study aid only — not an official test. Rules checked against the Tasmanian Government's{' '}
-        <a href="https://www.platesplus.tas.gov.au" target="_blank" rel="noopener">
+        <a
+          href="https://www.platesplus.tas.gov.au"
+          target="_blank"
+          rel="noopener"
+          className={footLink}
+        >
           Plates Plus
         </a>{' '}
         and{' '}
-        <a href="https://www.transport.tas.gov.au" target="_blank" rel="noopener">
+        <a
+          href="https://www.transport.tas.gov.au"
+          target="_blank"
+          rel="noopener"
+          className={footLink}
+        >
           Transport Services
         </a>{' '}
         sites in August 2026. Always confirm current rules there before your test. Progress is saved

@@ -64,31 +64,37 @@
   --radius-card: 14px;
 }
 
-/* Base size 17px like the original; the A+ toggle scales everything by 1.18. */
-html {
-  font-size: 106.25%;
-  -webkit-text-size-adjust: 100%;
-}
-html[data-big='1'] {
-  font-size: 125.375%;
-}
+@layer base {
+  /* Base size 17px like the original; the A+ toggle scales everything by 1.18. */
+  html {
+    font-size: 106.25%;
+    -webkit-text-size-adjust: 100%;
+  }
+  html[data-big='1'] {
+    font-size: 125.375%;
+  }
 
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font-family: var(--font-body);
-  line-height: 1.5;
-  padding-bottom: env(safe-area-inset-bottom);
-}
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    line-height: 1.5;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
 
-:focus-visible {
-  outline: 3px solid var(--focus);
-  outline-offset: 2px;
-}
+  [tabindex='-1']:focus {
+    outline: none;
+  }
 
-a {
-  color: var(--accent-text);
+  :focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+  }
+
+  a {
+    color: var(--accent-text);
+  }
 }
 
 /* Lane-line progress bar (the original's signature look). */
