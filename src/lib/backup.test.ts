@@ -38,6 +38,20 @@ describe('export / import', () => {
     expect(await decodeBackup(JSON.stringify(sample))).toEqual({ ok: true, progress: sample });
   });
 
+  it('reads a code made by the export button added to the old single-file app', async () => {
+    const fromOldApp =
+      'TLD1.q1YqTk3NU7KqViouSE1N0TVQsjLSUSrOTM8r1jU2ULIyrNVRSs4vKkpNLkFRVFJUmlqro1RelJ-XrmQVjdARq6OUlJkO0ggA';
+    expect(await decodeBackup(fromOldApp)).toEqual({
+      ok: true,
+      progress: {
+        seen: { 'speed-0': 2, 'signs-30': 1 },
+        correct: { 'speed-0': true },
+        wrong: ['signs-30'],
+        big: 1,
+      },
+    });
+  });
+
   it('rejects bad data with a friendly error', async () => {
     for (const bad of [
       '',
