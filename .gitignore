@@ -1,0 +1,10 @@
+node_modules
+dist
+dev-dist
+coverage
+.vercel
+.env*
+*.log
+.DS_Store
+lighthouse-*.html
+lighthouse-*.json
